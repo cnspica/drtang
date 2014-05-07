@@ -1,5 +1,6 @@
 <?php
 	include_once("conn.php");
+	include_once("BloodCmp.php")
 	function Register($phonenum, $password)
 	{
 		if(mysql_query("INSERT INTO account(phonenum, password) VALUES (".$phonenum.", ".$password.")") == 1)
@@ -71,7 +72,8 @@
 	
 	function RecordJudge($phonenum, $value)
 	{
-		
+		$BData = new BloodCmp($phonenum, $value);
+		$BData->Blood_cmp();
 	}
 	
 ?>
