@@ -1,7 +1,7 @@
 <?php
 class Fetion{
 	private $url = "https://quanapi.sinaapp.com/fetion.php?u=";
-	private $SendTel = "***********";						// 飞信帐号
+	private $SendTel = "**********";						// 飞信帐号
 	private $SendTelPwd = "***********";					// 飞信密码
 	private $SendTelTo;
 	private $lev;
