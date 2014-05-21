@@ -70,10 +70,13 @@
 		return $record;
 	}
 	
-	function RecordJudge($phonenum, $value)
+	function RecordJudge($phonenum, $value, $round)
 	{
 		$BData = new BloodCmp($phonenum, $value);
-		$BData->Blood_cmp();
+		if ($round % 2 == 0)
+			$BData->BBlood_cmp();
+		else
+			$BData->Blood_cmp();
 	}
 	
 ?>
