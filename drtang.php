@@ -14,7 +14,7 @@
 	if ($_GET["action"] == "get_guardian")
 		echo GetGuardian($_GET["phonenum"]);
 	if ($_GET["action"] == "add_record")
-		echo AddRecord($_GET["phonenum"], $_GET["value"], $_GET["food"], $_GET["sport"], $_GET["medicine"]);
+		echo AddRecord($_GET["phonenum"], $_GET["value"], $_GET["food"], $_GET["sport"], $_GET["medicine"], $_GET["round"]);
 	if ($_GET["action"] == "get_record")
 		echo GetRecord($_GET["phonenum"], $_GET["starttime"], $_GET["endtime"]);
 ?>

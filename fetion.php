@@ -1,8 +1,8 @@
 <?php
 class Fetion{
 	private $url = "https://quanapi.sinaapp.com/fetion.php?u=";
-	private $SendTel = "**********";						// 飞信帐号
-	private $SendTelPwd = "***********";					// 飞信密码
+	private $SendTel = "18706829087";						// 飞信帐号
+	private $SendTelPwd = "woshilindayi45";					// 飞信密码
 	private $SendTelTo;
 	private $lev;
 	private $message;
@@ -63,6 +63,7 @@ class Fetion{
 			$result = $this->message;
 		}
 		$this->SendInfo($result, $this->url, $this->SendTel, $this->SendTelPwd, $this->SendTelTo);
+		return $result;
 	}
 }
 ?>

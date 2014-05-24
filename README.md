@@ -125,13 +125,15 @@
 
 >>medicine
 
+>>round
+
 >返回值：
 
 >>字符串，健康评价与建议。
 
 >使用样例：
 
->>http://drtang.lindayi.tk/drtang.php?action=add_record&phonenum=12345&value=3.1&food=食品&sport=运动&medicine=用药
+>>http://drtang.lindayi.tk/drtang.php?action=add_record&phonenum=12345&value=3.1&food=食品&sport=运动&medicine=用药&round=1
 
 #####获取记录
 
@@ -147,7 +149,7 @@
 
 >返回值：
 
->>{"record":[{"time":"2014-04-28 17:55:36", "value":13.2, "food":"食品1", "sport":"运动1", "medicine":"药品1"},{"time":"2014-04-28 17:59:45", "value":3.1, "food":"食品2", "sport":"运动2", "medicine":"药品2"}]}
+>>{"record":[{"time":"2014-04-28 17:55:36", "value":13.2, "food":"食品1", "sport":"运动1", "medicine":"药品1", "round":1},{"time":"2014-04-28 17:59:45", "value":32, "food":"食品2", "sport":"运动2", "medicine":"药品2", "round":2}]}
 
 >使用样例：
 

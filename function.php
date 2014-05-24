@@ -1,9 +1,9 @@
 <?php
 	include_once("conn.php");
-	include_once("BloodCmp.php")
+	include_once("BloodCmp.php");
 	function Register($phonenum, $password)
 	{
-		if(mysql_query("INSERT INTO account(phonenum, password) VALUES (".$phonenum.", ".$password.")") == 1)
+		if(mysql_query("INSERT INTO account(phonenum, password) VALUES ('".$phonenum."', '".$password."')") == 1)
 			return 1;
 		else
 			return 0;
@@ -48,10 +48,10 @@
 		return $guardian;
 	}
 
-	function AddRecord($phonenum, $value, $food, $sport, $medicine)
+	function AddRecord($phonenum, $value, $food, $sport, $medicine, $round)
 	{
-		if(mysql_query("INSERT INTO record(phonenum, value, food, sport, medicine) VALUES ('".$phonenum."', '".$value."', '".$food."', '".$sport."', '".$medicine."')") == 1)
-                        return RecordJudge($phonenum, $value);
+		if(mysql_query("INSERT INTO record(phonenum, value, food, sport, medicine, round) VALUES ('".$phonenum."', '".$value."', '".$food."', '".$sport."', '".$medicine."', '".$round."')") == 1)
+                        return RecordJudge($phonenum, $value, $round);
                 else
                         return 0;
 	}
@@ -61,10 +61,10 @@
 		$result = mysql_query("SELECT * FROM record WHERE phonenum = '".$phonenum."' AND time >= '".$starttime."' AND time <= '".$endtime."'");
 		$row = mysql_fetch_array($result);
 		if(!($row)) return 0;
-		$record = "{\"record\":[{\"time\":\"".$row["time"]."\", \"value\":".$row["value"].", \"food\":\"".$row["food"]."\", \"sport\":\"".$row["sport"]."\", \"medicine\":\"".$row["medicine"]."\"}";
+		$record = "{\"record\":[{\"time\":\"".$row["time"]."\", \"value\":\"".$row["value"]."\", \"food\":\"".$row["food"]."\", \"sport\":\"".$row["sport"]."\", \"medicine\":\"".$row["medicine"]."\", \"round\":\"".$row["round"]."\"}";
 		while($row = mysql_fetch_array($result))
 		{
-			$record .= ",{\"time\":\"".$row["time"]."\", \"value\":".$row["value"].", \"food\":\"".$row["food"]."\", \"sport\":\"".$row["sport"]."\", \"medicine\":\"".$row["medicine"]."\"}";
+			$record .= ",{\"time\":\"".$row["time"]."\", \"value\":\"".$row["value"]."\", \"food\":\"".$row["food"]."\", \"sport\":\"".$row["sport"]."\", \"medicine\":\"".$row["medicine"]."\", \"round\":\"".$row["round"]."\"}";
 		}
 		$record .= "]}";
 		return $record;
@@ -74,9 +74,9 @@
 	{
 		$BData = new BloodCmp($phonenum, $value);
 		if ($round % 2 == 0)
-			$BData->BBlood_cmp();
+			return $BData->BBlood_cmp();
 		else
-			$BData->Blood_cmp();
+			return $BData->Blood_cmp();
 	}
 	
 ?>
