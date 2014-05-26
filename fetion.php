@@ -1,8 +1,8 @@
 <?php
 class Fetion{
 	private $url = "https://quanapi.sinaapp.com/fetion.php?u=";
-	private $SendTel = "18706829087";						// 飞信帐号
-	private $SendTelPwd = "woshilindayi45";					// 飞信密码
+	private $SendTel = "***********";						// 飞信帐号
+	private $SendTelPwd = "************";					// 飞信密码
 	private $SendTelTo;
 	private $lev;
 	private $message;
@@ -25,10 +25,13 @@ class Fetion{
 	// 利用飞信给用户发送信息
 	public function fetion()
 	{
-		$result;
 		if ($this->message == "")
 		{
-			if ($this->lev == 1)
+			if ($this->lev == 0)
+			{
+				$result = "您的血糖值正常，请继续保持";
+			}
+			elseif ($this->lev == 1)
 			{
 				$result = "您的血糖值偏高，请您注意身体";
 			}
@@ -44,17 +47,9 @@ class Fetion{
 			{
 				$result = "您的血糖值非常低，请您去医院进行检查身体";
 			}
-			elseif ($this->lev == -3)
-			{
-				$result = "您近期的血糖可能会偏低，请注意身体";
-			}
-			elseif ($this->lev == 3)
-			{
-				$result = "您近期的血糖可能会偏高，请注意身体";
-			}
 			else
 			{
-				echo "您输入的值有误!\n";
+				echo "血糖值有误!\n";
 				exit(0);
 			}
 		}

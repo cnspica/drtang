@@ -48,7 +48,6 @@ class BloodCmp{
 			else
 				$level = 2;													// 重度高
 			$result = "血糖高";
-			//echo "\n\n\t超出了阀值,进行飞信通知用户!\n\n";
 		}
 		else if($this->BloodData < $this->BStdLow)							// 超出低阀值
 		{
@@ -57,12 +56,11 @@ class BloodCmp{
 			else 
 				$level = -2;												// 重度低
 			$result = "血糖低";
-			//echo "\n\n\t超出了阀值,进行飞信通知用户!\n\n";
 		}
 		else
 		{
+			$level = 0;
 			$result = "正常";
-			//echo "\n\n\t本次测量正常，不进行通知用户!\n\n";
 		}
 		$this->RecordLog($result);											// 进行云端日志记录
 		$SendFetion = new Fetion($level, $this->Telephone, "");
